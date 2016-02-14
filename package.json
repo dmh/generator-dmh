@@ -1,17 +1,16 @@
 {
   "name": "generator-dmh",
   "version": "0.0.0",
-  "description": "",
-  "homepage": "",
+  "description": "Pixelant Front-End Starter Kit",
+  "repository": "dmh/generator-dmh",
+  "license": "MIT",
   "author": {
-    "name": "dmytro",
-    "email": "dmytro@pixelant.se",
-    "url": ""
+    "name": "dmytro"
   },
   "files": [
-    "generators"
+    "app"
   ],
-  "main": "index.js",
+  "main": "app/index.js",
   "keywords": [
     "yeoman-generator"
   ],
@@ -25,7 +24,7 @@
     "eslint-config-xo-space": "^0.7.0"
   },
   "scripts": {
-    "test": ""
-  },
+    "prepublish": "git submodule update --init --recursive"
+},
   "license": "MIT"
 }
