@@ -2,8 +2,13 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var path = require('path');
 
 module.exports = yeoman.generators.Base.extend({
+  constructor: function () {
+   yeoman.Base.apply(this, arguments);
+   this.sourceRoot(path.join(path.dirname(this.resolved), 'templates/felayout_t3kit'));
+ },
   prompting: function () {
     var done = this.async();
 
@@ -28,13 +33,15 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: function () {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+    this.fs.copy([
+      this.templatePath() + '/**',
+      this.templatePath() + '/**/.*',
+      '!**/{gulpfile.js,bower.json,package.json,.git,.npmignore,.gitignore,wct.conf.js,docs,test}/**'],
+      this.destinationPath()
     );
   },
 
   install: function () {
-    this.installDependencies();
+    // this.installDependencies();
   }
 });
