@@ -23,8 +23,5 @@
     "yeoman-assert": "^2.0.0",
     "eslint-config-xo-space": "^0.7.0"
   },
-  "scripts": {
-    "prepublish": "git submodule update --init --recursive"
-},
   "license": "MIT"
 }
